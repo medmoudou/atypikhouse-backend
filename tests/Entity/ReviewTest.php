@@ -27,7 +27,7 @@ class ReviewTest extends UserAuthTest
 
     public function testCreateReview(): void
     {
-        $this->testAuthUser()->request(
+        $response = $this->testAuthUser()->request(
             'POST',
             '/api/reviews',
             [
@@ -45,6 +45,9 @@ class ReviewTest extends UserAuthTest
             ]
         );
         $this->assertResponseStatusCodeSame(201);
+        // $json = $response->toArray();
+        // $this->assertArrayHasKey("id", $json);
+        // return $json["id"];
     }
 
     public function testUpdateReview(): void
@@ -64,8 +67,9 @@ class ReviewTest extends UserAuthTest
     // {
     //     $this->testAuthUser()->request(
     //         'DELETE',
-    //         '/api/reviews/5',
+    //         '/api/reviews/29',
     //     );
     //     $this->assertResponseStatusCodeSame(204);
     // }
 }
+// "/api/reviews/{$this->testCreateReview()}",
